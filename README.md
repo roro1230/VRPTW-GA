@@ -1,6 +1,26 @@
-# VRPTW-GA Demo
+# Problem
 
-A Streamlit-based demo application for solving the Vehicle Routing Problem with Time Windows (VRPTW) using a Genetic Algorithm (GA).
+The Vehicle Routing Problem with Time Windows (VRPTW) is a classical combinatorial optimization problem in logistics and transportation. The objective is to design optimal routes for a fleet of vehicles that start and end at a central depot to serve a set of customers, subject to the following constraints:
+
+- Each customer must be served exactly once by one vehicle.
+
+- Each vehicle has a limited capacity.
+- Each customer has a predefined time window [earliest, latest] during which service must start.
+
+- Vehicles arriving earlier than the time window must wait; arriving later makes the solution infeasible.
+
+- All vehicles depart from and return to the depot.
+
+Optimization objectives: in this project focus on time-based efficiency and constraint satisfaction:
+
+- Minimizing the total pickup-to-delivery time across all packages, defined as the sum of (delivery time − pickup time).
+
+- Minimizing penalties for time window violations at both pickup and delivery locations.
+- Ensuring all vehicles operate within capacity constraints and respect all pickup and delivery time windows.
+
+# Solution
+
+This project solves the VRPTW using a Genetic Algorithm (GA) to search for high-quality routing solutions under time window and capacity constraints.
 
 ## Description
 
@@ -8,13 +28,26 @@ This project demonstrates the application of genetic algorithms to optimize vehi
 
 ## Features
 
-- Interactive data editing for senders and recipients
-- Genetic algorithm optimization with configurable generations
-- Visualization of locations and optimized routes
-- Detailed results explanation including fitness and objective values
-- Time arrival tables for packages
+- Interactive data editing for senders and recipients.
+- Genetic algorithm optimization with configurable generations.
 
-## Installation
+- Visualization of locations and optimized routes.
+
+- Detailed results explanation including fitness and objective values.
+
+- Time arrival tables for packages.
+
+# Results
+
+Due to the stochastic nature of Genetic Algorithms, the solution quality improves progressively with an increasing number of generations, and the algorithm does not converge to a single fixed result. Therefore, results are reported based on representative runs and observed convergence behavior.
+
+- The genetic algorithm consistently produces feasible solutions that satisfy all capacity and pickup/delivery time window constraints.
+
+- Fitness values decrease monotonically over generations, indicating continuous improvement in solution quality.
+
+- Increasing the number of generations further improves or stabilizes the fitness value, demonstrating the effectiveness of the search process.
+
+# Installation
 
 1. Clone the repository:
 
@@ -44,26 +77,14 @@ This project demonstrates the application of genetic algorithms to optimize vehi
    - Run the genetic algorithm
    - Explore results and visualizations
 
-## Requirements
+# Demo
 
-- Python 3.7+
-- Dependencies listed in requirements.txt:
-  - streamlit
-  - pandas
-  - numpy
-  - matplotlib
-  - deap
+![Demo UI](assets/vrptw_result1.jpg)
 
-## Project Structure
+![Demo UI](assets/vrptw_result2.jpg)
 
-- `vrptw-ga.py`: Main application file
-- `requirements.txt`: Python dependencies
-- `README.md`: This file
+![Demo UI](assets/vrptw_result3.jpg)
 
-![Demo UI](assets/demo1.jpg)
+![Demo UI](assets/Visualization_Locations.png)
 
-![Demo UI](assets/demo2.jpg)
-
-![Demo UI](assets/demo3.jpg)
-
-![Demo UI](assets/demo4.jpg)
+![Demo UI](assets/Visualization_Routes.png)
